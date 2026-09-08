@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>EduMax - Add Announcement</title><!-- Edit for each new page created from this template -->
+    <meta name="author" content="zt270408 Dean Fuller">
+    <meta name="description" content="A web page containing a form to add an announcement.">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css"><!-- Bootstrap stylesheet -->
+    <link rel="stylesheet" href="../css/Custom.css"><!-- Custom stylesheet - linked after Bootstrap so that entries here take precedence and override Bootstrap's style -->
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <!--header content to go here-->
+            <!-- Row 1 -->
+            <div class="row">
+                <div class="col">
+                    <!-- logo -->
+                    <img src="../images/EduMax_logo.png" alt="EduMax logo" class="img-fluid">
+                </div>
+                <div class="col">
+                    <!-- site name -->
+                    <h1 class="header">Edumax</h1>
+                </div>
+                <div class="col text-end">
+                    <!-- login button -->
+                    <a class="btn btn-primary m-2" href="./registration.html" role="button">Login</a>
+                </div>
+            </div>
+            <!-- Row 2 -->
+            <div class="row g-0 bg-dark">
+                <div class="col">
+                    <nav class="navbar navbar-expand-lg p-2" data-bs-theme="dark">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <div class="navbar-nav">
+                            <!-- primary navigation -->
+                                <a class="nav-link" href="../index.html">Home</a>
+                                <a class="nav-link" href="./form.html">Catalogue</a>
+                                <a class="nav-link" href="./form.html">Events</a>
+                                <a class="nav-link" href="./form.html">News</a>
+                                <a class="nav-link" href="./form.html">Announcements</a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col">
+                    <!-- search box -->
+                    <form class="d-flex p-2" role="search">
+                        <input class="form-control me-2" type="search" placeholder="search" aria-label="search">
+                        <button class="btn btn-outline-info" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </header>
+        
+        <main id="main-content" class="main">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10">
+                    <div class="card-header bg-primary text-white">
+                        <h2 class="h4 mb-0">Add Announcement</h2>
+                    </div>
+                    <div class="card-body">
+                        <form action="https://students.open.ac.uk/mct/tm252/reflect/reflect.php" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+                            <input type="hidden" name="item_ID" value="30001000-5000-654321fedcba">
+                            
+                            <!--Sender Name -->
+                            <div class="mb-3 row">
+                                <label for="sender_name" class="col-sm-3 col-form-label fw-bold">
+                                    Sender Name <span class="text-danger" aria-hidden ="true">*</span>
+                                </label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="sender_name" name="sender_name" value="Dean Fuller" required aria-describedby="senderNameHelp">
+                                    <div id="senderNameHelp" class="form-text">Sender's full name</div>
+                                </div>
+                            </div>
+
+                            <!--Sender's Role -->
+                            <div class="mb-3 row">
+                                <label for="sender_role" class="col-sm-3 col-form-label fw-bold">
+                                    Sender's Role <span class="text-danger" aria-hidden="true">*</span>
+                                </label>
+                                <div class="col-sm-9 col-md-6">
+                                    <select class="form-select" id="sender_role" name="sender_role" required aria-describedby="senderRoleHelp">
+                                        <option value="" disabled>Select a role...</option>
+                                        <option value="module lead" selected>Module Lead</option>
+                                        <option value="administrator">Administrator</option>                                            
+                                        <option value="module assistant">Module Assistant</option>
+                                    </select>
+                                    <div id="senderRoleHelp" class="form-text">Select sender's role.</div>
+                                </div>
+                            </div>
+
+                            <!-- Subject Line -->
+                            <div class="mb-3 row">
+                                <label for="subject" class="col-sm-3 col-form-label fw-bold">
+                                    Subject Line <span class="text-danger" aria-hidden="true">*</span>
+                                </label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="subject" name="subject" value="Exam revision timetable" maxlength="100" required aria-describedby="subjectHelp">
+                                    <div id="subjectHelp" class="form-text">Email subject (max five words).</div>
+                                </div>
+                            </div>
+
+                            <!-- Content-->
+                            <div class="mb-3 row">
+                                <label for="content" class="col-sm-3 col-form-label fw-bold">
+                                    Content <span class="text-danger" aria-hidden="true">*</span>
+                                </label>
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" id="content" name="content" rows="6" required aria-describedby="contentHelp">Please find attached the revision timetable for the upcoming module examinations. Ensure you review all scheduled sessions carefully.</textarea>
+                                    <div id="contentHelp" class="form-text">Message content.</div>
+                                </div>
+                            </div>
+
+                            <!-- Send Date & Time -->
+                            <div class="mb-3 row">
+                                <label for="send_datetime" class="col-sm-3 col-form-label fw-bold">
+                                    Send Date &amp; Time <span class="text-danger" aria-hidden="true">*</span>
+                                </label>
+                                <div class="col-sm-9 col-md-6">
+                                    <input type="datetime-local" class="form-control" id="send_datetime" name="send_datetime" value="2026-10-01T09:00" required aria-describedby="sendDatetimeHelp">
+                                    <div id="sendDatetimeHelp" class="form-text">Date and time the announcement should be sent.</div>
+                                </div>
+                            </div>
+
+                            <!-- Priority -->
+                            <div class="mb-3 row">
+                                <label for="priority" class="col-sm-3 col-form-label fw-bold">
+                                    Priority <span class="text-danger" aria-hidden="true">*</span>
+                                </label>
+                                <div class="col-sm-9 col-md-6">
+                                    <select class="form-select" id="priority" name="priority" required aria-describedby="priorityHelp">
+                                        <option value="High" selected>High</option>
+                                        <option value="Normal">Normal</option>
+                                        <option value="Low">Low</option>
+                                    </select>
+                                    <div id="priorityHelp" class="form-text">Set email priority level.</div>
+                                </div>
+                            </div>
+
+                            <!-- Attachment -->
+                            <div class="mb-3 row">
+                                <label for="attachment" class="col-sm-3 col-form-label fw-bold">
+                                    Attachment <span class="fw-normal text-muted">(optional)</span>
+                                </label>
+                                <div class="col-sm-9">
+                                    <input type="file" class="form-control" id="attachment" name="attachment" aria-describedby="attachmentHelp">
+                                    <div id="attachmentHelp" class="form-text">Upload a file (optional)</div>
+                                </div>
+                            </div>
+
+                            <!-- Consent Notice -->
+                            <div class="alert alert-info d-flex align-items-center mt-4" role="alert">
+                                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+                                    <div>
+                                        <strong>Consent Notice:</strong> This announcement will only be sent to students who have given prior consent.
+                                    </div>
+                                </div>
+
+                            <!-- Submit Buttons -->
+                            <div class="row pt-3">
+                                <div class="col-sm-9 offset-sm-3 d-flex gap-2">
+                                    <button type="submit" class="btn btn-primary">Schedule Email</button>
+                                    <a href="../index.html" class="btn btn-outline-secondary">Cancel</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>    
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <!-- Row 5 -->
+            <div class="row me-0">
+                <div class="col">
+                    <nav class="nav">
+                        <!-- secondary navigation to go here -->
+                        <a class="nav-link" href="./form.html">Privacy</a>
+                        <a class="nav-link" href="./form.html">About Us</a>
+                        <a class="nav-link" href="./form.html">Support</a>
+                    </nav>
+                </div>
+                <div class="col text-end">
+                    <!-- copyright notice -->
+                    <p>&copy; EduMax 2026</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../js/bootstrap.min.js"></script><!-- Bootstrap JavaScript -->
+</body>
+</html>
